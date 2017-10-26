@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+   <head>
+        <title>用户管理</title>
+        <meta charset="utf-8">
+        <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="">
+        <% include ./common/res.html %>
+   </head>
+   
+   <body class=""> 
+  
+    <!-- top 导航 -->
+    <% include ./common/top.html %>
+
+	<!-- 菜单导航 -->
+    <% include ./common/nav.html %>
+        
+    <div class="content">
+        
+        <div class="header">
+            <div class="stats">
+            <p class="stat"><span class="number">53</span>标签</p>
+            <p class="stat"><span class="number">27</span>任务</p>
+            <p class="stat"><span class="number">15</span>待处理</p>
+        </div>
+
+        <h1 class="page-title">用户管理</h1>
+        </div>
+            <ul class="breadcrumb">
+            <li><a href="/">首页</a> <span class="divider">/</span></li>
+            <li><a href="/users">用户列表</a> <span class="divider">/</span></li>
+            <li class="active">用户添加（修改）</li>
+        </ul>
+
+        <div class="container-fluid">
+            <div class="row-fluid">
+				
+				<form id="tab" action="/users/create/" method="post">
+			        <label>用户名</label>
+			        <input name="username" type="text" value="" class="input-xlarge">
+
+                    <label>设置密码</label>
+                    <input name="password" type="text" value="" class="input-xlarge">
+
+                    <label>确认密码</label>
+                    <input name="password1" type="text" value="" class="input-xlarge">
+
+                    <label>姓名</label>
+                    <input name="realname" type="text" value="" class="input-xlarge">
+
+                    <label>性别</label>
+                    <input name=sex type=radio value=1  checked > 男   <input name=sex type=radio value=0 > 女
+
+                    <div class="info_item">
+                        <label>出生日期：</label>
+                        <p><select name="year" id="opetype">
+                            <option value="2010" >2010</option>
+                            <option value="2011" >2011</option>
+                            <option value="2012" >2012</option>
+                            <option value="2013" >2013</option>
+                            <option value="2014" >2014</option>
+                            <option value="2015" >2015</option>
+                            <option value="2016" >2016</option>
+                            <option value="2017" >2017</option>
+                        </select>年</p>
+                        <p><select name="month" id="opetype">
+
+                            <option value="1" >1</option>
+
+                            <option value="2" >2</option>
+
+                            <option value="3" >3</option>
+
+                            <option value="4" >4</option>
+
+                            <option value="5" >5</option>
+
+                            <option value="6" >6</option>
+
+                            <option value="7" >7</option>
+
+                            <option value="8" >8</option>
+
+                            <option value="9" >9</option>
+
+                            <option value="10" >10</option>
+
+                            <option value="11" >11</option>
+
+                            <option value="12" >12</option>
+
+                        </select>月</p>
+                        <p><select name="day" id="opetype">
+
+                            <option value="1" >1</option>
+
+                            <option value="2" >2</option>
+
+                            <option value="3" >3</option>
+
+                            <option value="4" >4</option>
+
+                            <option value="5" >5</option>
+
+                            <option value="6" >6</option>
+
+                            <option value="7" >7</option>
+
+                            <option value="8" >8</option>
+
+                            <option value="9" >9</option>
+
+                            <option value="10" >10</option>
+
+                            <option value="11" >11</option>
+
+                            <option value="12" >12</option>
+
+                            <option value="13" >13</option>
+
+                            <option value="14" >14</option>
+
+                            <option value="15" >15</option>
+
+                            <option value="16" >16</option>
+
+                            <option value="17" >17</option>
+
+                            <option value="18" >18</option>
+
+                            <option value="19" >19</option>
+
+                            <option value="20" >20</option>
+
+                            <option value="21" >21</option>
+
+                            <option value="22" >22</option>
+
+                            <option value="23" >23</option>
+
+                            <option value="24" >24</option>
+
+                            <option value="25" >25</option>
+
+                            <option value="26" >26</option>
+
+                            <option value="27" >27</option>
+
+                            <option value="28" >28</option>
+
+                            <option value="29" >29</option>
+
+                            <option value="30" >30</option>
+
+                            <option value="31" >31</option>
+
+                        </select>日</p>
+                    </div>
+
+                    <label>身份证号码</label>
+                    <input name="idcardnum" type="text" value="" class="input-xlarge">
+
+                    <label>手机号码</label>
+                    <input name="phonenum" type="text" value="" class="input-xlarge">
+
+                    <label>职称</label>
+                    <input name="rankname" type="text" value="" class="input-xlarge">
+
+                    <label>设备ID</label>
+                    <input name="devid" type="text" value="" class="input-xlarge">
+
+                    <div class="btn-toolbar">
+					    <input type="submit" class="btn btn-primary"><i class="icon-save"></i> 保存</input>
+					</div>
+			        
+			    </form>                
+
+                <% include ./common/foot.html %>
+           </div>
+    	</div>
+	</div>
+  </body>
+</html>

@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html>
+   <head>
+        <title>视频列表</title>
+        <meta charset="utf-8">
+        <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="">
+        <% include ./common/res.html %>
+   </head>
+   
+   <body class=""> 
+  
+    <!-- top 导航 -->
+    <% include ./common/top.html %>
+
+	<!-- 菜单导航 -->
+    <% include ./common/nav.html %>
+        
+    <div class="content">
+        
+        <div class="header">
+            <div class="stats">
+            <p class="stat"><span class="number">53</span>标签</p>
+            <p class="stat"><span class="number">27</span>任务</p>
+            <p class="stat"><span class="number">15</span>待处理</p>
+        </div>
+
+        <h1 class="page-title">视频搜索</h1>
+        </div>
+            <ul class="breadcrumb">
+            <li><a href="/">首页</a> <span class="divider">/</span></li>
+            <li class="active">视频搜索</li>
+        </ul>
+
+        <div class="container-fluid">
+            <div class="row-fluid">
+				
+				<form id="tab" action="/vdo/select" method="post">
+			        <label>页数（0-4）</label>
+			        <input name="page" type="text" value="" class="input-xlarge">
+			        
+			        <div class="btn-toolbar">
+					    <input type="submit" class="btn btn-primary"><i class="icon-save"></i> 前往</input>
+					</div>
+			        
+			    </form>                
+
+                <% include ./common/foot.html %>
+           </div>
+    	</div>
+	</div>
+  </body>
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>用户管理</title>
+        <meta charset="utf-8">
+        <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="">
+        <% include ./common/res.html %>
+    </head>
+
+    <body class="">
+
+        <!-- top 导航 -->
+        <% include ./common/top.html %>
+
+        <!-- 菜单导航 -->
+        <% include ./common/nav.html %>
+
+        <div class="content">
+
+            <div class="header">
+                <div class="stats">
+                    <p class="stat"><span class="number">53</span>标签</p>
+                    <p class="stat"><span class="number">27</span>任务</p>
+                    <p class="stat"><span class="number">15</span>待处理</p>
+                </div>
+
+                <h1 class="page-title">用户管理</h1>
+            </div>
+            <ul class="breadcrumb">
+                <li><a href="/">首页</a> <span class="divider">/</span></li>
+                <li class="active">用户列表</li>
+            </ul>
+
+            <div class="container-fluid">
+                <div class="row-fluid">
+                    <div class="btn-toolbar">
+                        <a href="/users/create">
+                            <button class="btn btn-primary"><i class="icon-plus"></i> 新建</button>
+                        </a>
+                        <div class="btn-group"></div>
+                    </div>
+
+                    <div class="well">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>姓名</th>
+                                    <th>登录名</th>
+                                    <th>身份证号</th>
+                                    <th>手机号</th>
+                                    <th>头衔</th>
+                                    <th>设备ID</th>
+                                    <th style="width: 26px;"></th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                            <!-- 输出内容 -->
+                            <% for(var i=0; i<user_arr.length; i++) {%>
+                                <tr>
+                                    <td><%=user_arr[i].id %></td>
+                                    <td><%=user_arr[i].realname %></td>
+                                    <td><%=user_arr[i].username %></td>
+                                    <td><%=user_arr[i].idcardnum %></td>
+                                    <td><%=user_arr[i].phonenum %></td>
+                                    <td><%=user_arr[i].rankname %></td>
+                                    <td><%=user_arr[i].devid %></td>
+                                    <td>
+                                        <a onclick="delUserConfirm(<%=user_arr[i].id %>)" href="#myModal" role="button" data-toggle="modal"><i class="icon-remove"></i></a>
+                                    </td>
+                                </tr>
+                            <% } %>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="pagination">
+                        <ul>
+                            <li><a href="#">Prev</a></li>
+                            <li><a href="#">1</a></li>
+                            <li><a href="#">2</a></li>
+                            <li><a href="#">3</a></li>
+                            <li><a href="#">4</a></li>
+                            <li><a href="#">Next</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- 删除确认框 -->
+                    <div class="modal small hide fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                            <h3 id="myModalLabel">确定删除</h3>
+                        </div>
+                        <div class="modal-body">
+                            <p class="error-text"><i class="icon-warning-sign modal-icon"></i>确定删除用户?</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn" data-dismiss="modal" aria-hidden="true">取消</button>
+                            <button class="btn btn-danger" data-dismiss="modal" onclick="delUser()">删除</button>
+                        </div>
+                        <input type="hidden" value="" id="deluserId">
+                    </div>
+                    <script type="text/javascript">
+                        function delUserConfirm(id){
+                            $('#deluserId').val(id);
+                        }
+                        function delUser(){
+                           window.location.href='/users/delete?id=' + $('#deluserId').val();
+                        }
+                    </script>
+
+                    <% include ./common/foot.html %>
+
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

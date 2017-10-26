@@ -1,0 +1,35 @@
+
+<div class="sidebar-nav">
+        
+    <a href="#dashboard-menu" class="nav-header" data-toggle="collapse"><i class="icon-dashboard"></i>工作区</a>
+    <ul id="dashboard-menu" class="nav nav-list collapse in">
+        <li <% if(cur_nav == 'home') {%> class="active" <%}%> ><a href="/">首页</a></li>
+        <li <% if(cur_nav == 'user_mng') {%> class="active" <%}%> ><a href="/users">用户管理</a></li>
+        <li <% if(cur_nav == 'ipc_mng') {%> class="active" <%}%> ><a href="/ipc">监控管理</a></li>
+        <li <% if(cur_nav == 'vdo_list') {%> class="active" <%}%> ><a href="/vdo">视频管理</a></li>
+    </ul>
+
+    <a href="#accounts-menu" class="nav-header" data-toggle="collapse"><i class="icon-briefcase"></i>我的账号<span class="label label-info">+3</span></a>
+    <ul id="accounts-menu" class="nav nav-list collapse">
+        <li ><a href="#">修改信息</a></li>
+        <li ><a href="#">重置密码</a></li>
+    </ul>
+
+    <a href="#error-menu" class="nav-header collapsed" data-toggle="collapse"><i class="icon-exclamation-sign"></i>导航一<i class="icon-chevron-up"></i></a>
+    <ul id="error-menu" class="nav nav-list collapse">
+        <li ><a href="#">403 page</a></li>
+        <li ><a href="#">404 page</a></li>
+        <li ><a href="#">500 page</a></li>
+        <li ><a href="#">503 page</a></li>
+    </ul>
+
+    <a href="#legal-menu" class="nav-header" data-toggle="collapse"><i class="icon-legal"></i>导航二</a>
+    <ul id="legal-menu" class="nav nav-list collapse">
+        <li ><a href="#">文档</a></li>
+        <li ><a href="#">团队成员</a></li>
+    </ul>
+
+    <a href="/" class="nav-header" ><i class="icon-question-sign"></i>帮助</a>
+    <a href="/" class="nav-header" ><i class="icon-comment"></i>反馈</a>
+</div>
+
