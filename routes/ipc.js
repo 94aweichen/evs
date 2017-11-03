@@ -4,7 +4,7 @@ var router = express.Router();
 
 
 router.get('/', function(req, res, next) {
-    res.render('ipcIndex', {cur_nav:'ipc_mng', content: '您当前现在在监控主页！', name: req.session.user });
+    res.render('ipcIndex', {cur_nav:'ipc_mng', content: '您当前现在在监控主页！', name: req.session.loginUser });
 });
 
 //输入设备号

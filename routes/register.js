@@ -14,7 +14,7 @@ require('./cms/model');
 var sqlClient = new SqlClient();//数据库访问对象
 
 router.get('/', function(req, res, next) {
-    res.render('userRegister', {cur_nav:'home', content: '您当前现在在用户注册页面！', name: req.session.user });
+    res.render('userRegister', {cur_nav:'home', content: '您当前现在在用户注册页面！', name: req.session.loginUser });
 });
 
 router.post("/", function(req,res, next){

@@ -3,8 +3,9 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-    if(req.session.user){
-        res.render('index', {cur_nav:'home', title: 'EVS系统管理', name: req.session.user });
+    console.log(req.session);
+    if(req.session.loginUser){
+        res.render('index', {cur_nav:'home', title: 'EVS系统管理', name: req.session.loginUser });
     }else{
         res.redirect('/login');
     }

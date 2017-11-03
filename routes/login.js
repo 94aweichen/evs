@@ -14,10 +14,10 @@ require('./cms/model');
 var sqlClient = new SqlClient();//数据库访问对象
 
 router.get('/', function(req, res, next) {
-    if(req.session.user){
+    if(req.session.loginUser){
         next();
     }else{
-        res.render('userLogin', {cur_nav:'user_login', title: 'EVS系统管理', name: req.session.user });
+        res.render('userLogin', {cur_nav:'user_login', title: 'EVS系统管理', name: req.session.loginUser });
     }
 });
 
@@ -45,7 +45,7 @@ router.post("/", function(req,res, next){   // 从此路径检测到post方式�
                             console.log("session生成失败！返回json错误值");
                             return;
                         }
-                        req.session.user = user_arr[0].username;
+                        req.session.loginUser = user_arr[0].username;
                         console.log("密码正确！返回json正确值");
                         //res.json({success:1});
                         res.redirect('/');
@@ -80,7 +80,7 @@ router.get('/app', function(req, res, next) {
                     res.json({result:1});
                     //res.redirect('/');
                 }else{    //信息匹配成功，则将此对象（匹配到的user) 赋给session.user  并返回成功
-                    //req.session.user = user_arr[0].username;
+                    req.session.loginUser = user_arr[0].username;
                     console.log("密码正确！返回json正确值");
                     res.json({result:0});
                     //res.redirect('/users');
@@ -114,7 +114,7 @@ router.post('/app', function (req, res, next) {
                     res.json({result:1});
                     //res.redirect('/');
                 }else{    //信息匹配成功，则将此对象（匹配到的user) 赋给session.user  并返回成功
-                    //req.session.user = user_arr[0].username;
+                    req.session.loginUser = user_arr[0].username;
                     console.log("密码正确！返回json正确值");
                     res.json({result:0});
                     //res.redirect('/users');

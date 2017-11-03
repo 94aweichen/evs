@@ -36,7 +36,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(session({
     secret: 'Triones',
     name: 'evs',
-    cookie: {maxAge:60000},
+    cookie: {maxAge:30*60*1000},
     store: new filestore(),
     resave: false,
     saveUninitialized: false
@@ -85,6 +85,16 @@ app.get('/logout',function(req,res){
     res.redirect('/login');
 });
 */
+app.use(function(req,res,next){
+    res.locals.loginUser = req.session.loginUser;
+    var err = req.session.error;
+    delete req.session.error;
+    res.locals.message = "";
+    if(err){
+        res.locals.message = '<div class="alert alert-danger" style="margin-bottom:20px;color:red;">'+err+'</div>';
+    }
+    next();
+});
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

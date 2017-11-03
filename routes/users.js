@@ -22,14 +22,14 @@ router.get('/', function(req, res, next) {
 		if(result != null && result.length > 0){
 			user_arr = result;
 		}
-		res.render('userIndex', {cur_nav:'user_mng', content: '您当前现在在用户主页！', user_arr:user_arr, name: req.session.user });
+		res.render('userIndex', {cur_nav:'user_mng', content: '您当前现在在用户主页！', user_arr:user_arr, name: req.session.loginUser });
 	});
 	
 });
 
 //添加用户
 router.get('/create', function(req, res, next) {
-    res.render('userMerge', {cur_nav:'user_mng', name: req.session.user});
+    res.render('userMerge', {cur_nav:'user_mng', name: req.session.loginUser});
 });
 
 //保存用户

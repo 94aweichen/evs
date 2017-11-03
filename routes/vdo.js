@@ -43,16 +43,16 @@ function reGetFileInfos() {//这里是为了大家以后写后台进行文件刷
 router.get('/', function(req, res, next) {
     reGetFileInfos();//初始化文件信息集
     //res.render('Media', {cur_nav:'vdo_list', content: '您当前现在在媒体主页！'});
-    res.render('vdoList', {cur_nav:'vdo_list', content: '您当前现在在媒体主页！', name: req.session.user });
+    res.render('vdoList', {cur_nav:'vdo_list', content: '您当前现在在媒体主页！', name: req.session.loginUser });
 });
 
 router.get('/select', function(req, res, next) {
-    res.render('vdoSelect', {cur_nav:'vdo_list', content: '您当前现在在媒体主页！', name: req.session.user });
+    res.render('vdoSelect', {cur_nav:'vdo_list', content: '您当前现在在媒体主页！', name: req.session.loginUser });
 });
 
 router.post('/select', function(req, res, next) {
     reGetFileInfos();//初始化文件信息集
-    res.render('vdoList', {cur_nav:'vdo_list', content: '您当前现在在媒体主页！', name: req.session.user });
+    res.render('vdoList', {cur_nav:'vdo_list', content: '您当前现在在媒体主页！', name: req.session.loginUser });
 });
 
 var page_count = 20;//分页条数
